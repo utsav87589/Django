@@ -1,8 +1,9 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 def home(request) : 
 
-    return HttpResponse("This is when I am learning the Django in the middle of ML lol")
+    return render(request, 'home.html')
 
 def about(response) : 
 
