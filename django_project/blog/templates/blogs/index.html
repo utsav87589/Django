@@ -1,0 +1,8 @@
+{% extends 'blogs/base.html' %}
+
+{% block content %}
+{% for car in cars %}
+    <h1>{{ car.brand }}</h1>
+    <h2>{{ car.model }} in color {{ car.color }}</h2>
+{% endfor %}
+{% endblock %}
