@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}
-login page
-{% endblock %}
+{% block title %} register {% endblock %}
 
 {% block content %}
+
+    <h2>Register here please!</h2>
 
     <form method="post">
         <label for="username">Username</label>
@@ -19,11 +19,11 @@ login page
     </form>
 
     {% if error %}
-    <p style="color: red;">{{ error }}</p>
+    <p>{{ error }} please go back to <a href=" {{ url_for('login') }}">login</a>page</p>
     {% endif %}
 
-    <a href="{{ url_for('info') }}">info</a>
-    <a href="{{ url_for('register') }}">register</a>
-
+    {% if message %}
+    <p>{{ message }} please go back to <a href=" {{ url_for('login') }}">login</a>page</p>
+    {% endif %}
 
 {% endblock %}
