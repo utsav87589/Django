@@ -1,4 +1,4 @@
-from flask import request, Response, url_for, session, redirect, Flask, render_template
+from flask import request, Response, url_for, session, redirect, Flask, render_template, flash
 
 app = Flask(__name__)
 app.secret_key = 'secret'
@@ -24,6 +24,14 @@ def login() :
 
         ### printing into the terminal to make sure that it's working
         print(f"{username} :: {password}")
+
+        if not username : 
+            flash('enter username please')
+            return redirect(url_for('login'))
+
+        if not password : 
+            flash('enter password please')
+            return redirect(url_for('login'))
 
         if username in valid_users.keys() and password == valid_users[username]: 
             session['user'] = username ### store into the session
@@ -69,13 +77,12 @@ def register() :
         username = request.form.get('username')
         password = request.form.get('password')
 
-        if username in valid_users.keys and password == valid_users[username] : 
+        if username in valid_users.keys() : 
             return render_template('register.html', error = 'Already registered!')
         
         else : 
-            valid_users.update({username : password})
+            valid_users[username] = password
             return render_template('register.html', message = 'successfully registered!')
         
     return render_template('register.html')
-
 
