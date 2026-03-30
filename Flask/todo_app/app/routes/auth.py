@@ -24,7 +24,7 @@ def login() :
 
             flash('Invalid username or password', 'danger')
 
-        return render_template('login.html')
+    return render_template('login.html')
 
 ### logout route
 @auth_bp.route('/logout')

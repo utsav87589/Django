@@ -34,7 +34,7 @@ def add_task() :
     return redirect(url_for('tasks.view_tasks'))
 
 ### changing the status of the task
-@tasks_bp.route('/toogle/<int:task_id', methods = ['POST'])
+@tasks_bp.route('/toggle/<int:task_id>', methods = ['POST'])
 def toggle_status(task_id) : 
 
     task = Task.query.get(task_id)
