@@ -19,6 +19,7 @@ def login() :
         if username == user_credentials['username'] and password == user_credentials['password'] : 
             session['user'] = username
             flash('Login successful', 'success')
+            return redirect(url_for('tasks.view_tasks')) 
 
         else : 
 

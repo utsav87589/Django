@@ -42,14 +42,14 @@ def toggle_status(task_id) :
     if task  :
 
         if task.status == 'Pending' : 
-            task.status == 'Working'
+            task.status = 'Working'
         elif task.status == 'Working' : 
-            task.status == 'Done'
+            task.status = 'Done'
         else : 
-            task.status == 'Pending'
+            task.status = 'Pending'
         db.session.commit()
 
-    return redirect(url_for('task.view_tasks'))
+    return redirect(url_for('tasks.view_tasks'))
 
 ### deleting all tasks at once
 @tasks_bp.route('/clear', methods = ['POST'])
@@ -59,5 +59,5 @@ def clear_tasks() :
     db.session.commit()
     flash('All tasks cleared', 'info')
 
-    return redirect(url_for('task.view_tasks'))
+    return redirect(url_for('tasks.view_tasks'))
     
