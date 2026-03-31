@@ -30,7 +30,7 @@
             {% for task in tasks %}
             <tr>
                 <td>{{ loop.index }}</td>
-                <td>{{ loop.title }}</td>
+                <td>{{ task.title }}</td>
                 <td>
                     <span class="badge {{ task.status|lower }}">{{ task.status }}</span>
                 </td>
