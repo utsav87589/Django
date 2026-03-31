@@ -13,7 +13,7 @@ body{
 /* Header */
 
 header{
-    background: linear-gradient(to_right, #0062e6,  #33aeff);
+    background: linear-gradient(to right, #0062e6,  #33aeff);
     color: white;
     padding: 20px 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -57,7 +57,7 @@ footer{
 }
 
 /* Flash messages */
-.flash.sucess {color: green;}
+.flash.success {color: green;}
 
 .flash.danger{color: red;}
 
