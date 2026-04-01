@@ -66,7 +66,8 @@ footer{
 
 /* Login form */
 
-.login-box{
+.login-box,
+.register-box{
     max-width: 400px;
     margin: 40px auto;
     padding: 30px;
@@ -75,7 +76,8 @@ footer{
     box-shadow: 0 0px 10px rgba(0 ,0 , 0, 0.1);
 }
 
-.login-box h2{
+.login-box h2,
+.register-box h2{
     text-align: center;
     margin-bottom: 20px;
 }
