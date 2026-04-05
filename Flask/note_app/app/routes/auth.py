@@ -48,3 +48,13 @@ def register() :
             return redirect(url_for('auth.login'))
 
     return render_template('register.html')
+
+
+### Logout route
+@auth_bp.route('/logout')
+def logout() : 
+
+    session.pop('user', None)
+    flash('Logged out succesfuuly', 'info')
+
+    return redirect(url_for('auth.login'))
