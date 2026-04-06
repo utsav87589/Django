@@ -5,27 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block title %}
-    </title> %}<title>Base file</title>
     {% endblock %}
 
-    <!-- Bootstrap link -->
-    <link href="https://jsdelivr.net" rel="stylesheet">
+    <!-- Local Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
 
 </head>
 
 <body>
 
-    <header>
-        <nav>
-            <a href="{{ url_for('auth.login') }}">Home</a>
-            {% if 'user' in session %}
-            <a href="{{ url_for('auth.logout') }}">Logout</a>
-            {% else %}
-            <a href="{{ url_for('auth.login') }}">Login</a>
-            <a href="{{ url_for('auth.register') }}">Register</a>
-            {% endif %}
-        </nav>
-    </header>
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Register</a>
+        </li>
+    </ul>
 
     <main>
         {% with messages = get_flashed_messages(with_categories = True) %}
@@ -43,7 +42,7 @@
 
 
     <!-- Bootstrap link -->
-    <script src="https://jsdelivr.net"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
 
 </body>
 
