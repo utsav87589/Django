@@ -7,8 +7,8 @@ from app.models import User
 auth_bp = Blueprint('auth', __name__)
 
 
-### main home page/login page
-@auth_bp.route('/', methods = ['GET', 'POST'])
+### login page
+@auth_bp.route('/login', methods = ['GET', 'POST'])
 def login() : 
 
     if request.method == 'POST' : 
