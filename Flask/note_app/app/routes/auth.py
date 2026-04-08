@@ -27,7 +27,7 @@ def login() :
             flash('Invalid credentials, try again or register', 'danger')
 
 
-    return render_template('auth.html')
+    return render_template('auth/auth.html')
 
 
 ### register route
@@ -47,7 +47,7 @@ def register() :
 
             return redirect(url_for('auth.login'))
 
-    return render_template('register.html')
+    return render_template('auth/register.html')
 
 
 ### Logout route
