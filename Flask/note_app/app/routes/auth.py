@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from app import db
 from app.models import User
+from ..data import users
 
 
 ### setting up our auth app
@@ -16,12 +17,17 @@ def login() :
         username = request.form.get('username')
         password = request.form.get('password')
 
-        user = User.query.filter_by(username = username).first()
+        print(f"{username} :: {password}")
 
-        if username and password == user.password : 
-            session['user'] = username
-            flash('Login successful', 'sucess')
-            return redirect(url_for('posts.view_posts'))
+        # user = User.query.filter_by(username = username).first()
+
+        for user in users : 
+
+            if username == user['username'] and password == user['password'] : 
+
+                session['user'] = username
+                flash('Login successful', 'success')
+                return redirect(url_for('home.home'))
         
         else : 
             flash('Invalid credentials, try again or register', 'danger')
