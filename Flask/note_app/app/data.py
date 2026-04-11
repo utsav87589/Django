@@ -11,3 +11,15 @@ posts = [
         'content' : 'Somedays are not as easy like walk in the garden, you might been grinding hard for the whole week just to get to a dead end and then have to work all the way back up and forth again!'
     }
 ]
+
+### sample users
+users = [
+    {
+        'username' : 'admin',
+        'password' : '123'
+    },
+    {
+        'username' : 'admin2',
+        'password' : 'great123'
+    }
+]
