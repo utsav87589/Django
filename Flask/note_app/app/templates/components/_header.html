@@ -1,0 +1,20 @@
+{% from 'macros/_ui.html' import nav_link %}
+
+<header>
+    <ul class="nav justify-content-center">
+
+       {{ nav_link(url_for('home.home'), 'Home') }}
+
+        {% if session.get('user') %}
+
+            {{ nav_link(url_for('auth.logout'), 'Logout', class='nav-link text-danger') }}
+
+        {% else %}
+
+            {{ nav_link(url_for('auth.login'), 'Login') }}
+            {{ nav_link(url_for('auth.register'), 'Register') }}
+            
+        {% endif %}
+ 
+    </ul>
+</header>
