@@ -6,7 +6,8 @@
        {{ nav_link(url_for('home.home'), 'Home') }}
 
         {% if session.get('user') %}
-
+        
+            {{ nav_link(url_for('posts.manage_posts'), 'Manage Posts') }}
             {{ nav_link(url_for('auth.logout'), 'Logout', class='nav-link text-danger') }}
 
         {% else %}

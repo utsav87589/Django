@@ -6,7 +6,11 @@
 
     {% for post in posts %}
 
-    {% include 'components/_post_view.html' %}
+      {% include 'components/_post_view.html' %}
+
+    {% else %}
+
+      <p>Nothing to show! sorry</p>
 
     {% endfor %}
 
