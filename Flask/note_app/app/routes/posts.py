@@ -19,3 +19,9 @@ def view_posts(post_id) :
             break
 
     return render_template('/tasks/posts.html', post = post_to_show)
+
+### route to edit, add or delete a particular post
+@posts_bp.route('/manage_posts')
+def manage_posts() : 
+
+    return render_template('tasks/manage_posts.html')
