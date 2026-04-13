@@ -2,23 +2,15 @@
 
 {% block content %}
 
-  {% if 'user' not in session %}
-
     {% for post in posts %}
 
       {% include 'components/_post_view.html' %}
 
     {% else %}
 
-      <p>Nothing to show! sorry</p>
+      {% include 'components/_no_content.html' %}
 
     {% endfor %}
 
-  {% else %}
-
-    <p>pappu pass ho gya</p>
-    <a href="{{ url_for('auth.logout') }}">Logout</a>
-
-  {% endif %}
-
+    
 {% endblock %}
