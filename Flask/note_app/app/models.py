@@ -21,7 +21,6 @@ class Post(db.Model) :
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(200), nullable = False)
     content = db.Column(db.String(2000), nullable = False)
-    status = db.Column(db.String(20), default = 'active')
     is_public = db.Column(db.Boolean, default = False)
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)

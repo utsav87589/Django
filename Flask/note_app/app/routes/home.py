@@ -12,7 +12,9 @@ def home() :
     username_in_session = session.get('user')
 
     if current_user.is_authenticated : 
-        return render_template('tasks/home.html', posts = current_user.posts)
-    
-    posts = Post.query.all()
+        posts = Post.query.filter_by(user_id = current_user.id).all()
+
+    else : 
+        posts = Post.query.filter_by(is_public = True).all()
+
     return render_template('/tasks/home.html', posts = posts)

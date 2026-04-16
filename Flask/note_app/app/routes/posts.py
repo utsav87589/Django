@@ -9,16 +9,9 @@ posts_bp = Blueprint('posts', __name__)
 @posts_bp.route('/posts/<int:post_id>')
 def view_posts(post_id) :
 
-    posts = Post.query.all()
+    post = Post.query.get(post_id)
 
-    post_to_show = None
-
-    for p in posts: 
-        if p['id'] == post_id:
-            post_to_show = p
-            break
-
-    return render_template('/tasks/posts.html', post = post_to_show)
+    return render_template('/tasks/posts.html', post = post)
 
 ### route to edit, add or delete a particular post
 @posts_bp.route('/manage_posts', methods = ['GET', 'POST'])
@@ -31,8 +24,6 @@ def manage_posts() :
             title = request.form.get('post_title')
             content = request.form.get('post_content')
             status = request.form.get('status')
-
-            print(f"{title} \n{content} \n{status}")
 
             is_public = True if status == 'on' else False
 
@@ -47,5 +38,8 @@ def manage_posts() :
             db.session.commit()
 
             flash('Post created succesfully', redirect(url_for('home.home')))
+
+            # print(f"{title} \n{content} \n{is_public}")
+
 
     return render_template('tasks/manage_posts.html')
