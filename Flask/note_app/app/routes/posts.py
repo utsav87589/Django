@@ -17,6 +17,15 @@ def view_posts(post_id) :
 @posts_bp.route('/manage_posts', methods = ['GET', 'POST'])
 def manage_posts() : 
 
+    posts = Post.query.filter_by(user_id = current_user.id).all()
+    return render_template('tasks/manage_posts.html', posts = posts)
+
+
+### route to add a post
+@posts_bp.route('/add_posts', methods = ['GET', 'POST'])
+def add_posts() : 
+
+
     if current_user.is_authenticated : 
 
         if request.method == 'POST' : 
@@ -39,7 +48,6 @@ def manage_posts() :
 
             flash('Post created succesfully', redirect(url_for('home.home')))
 
-            # print(f"{title} \n{content} \n{is_public}")
+            print(f"{title} \n{content} \n{is_public}")
 
-
-    return render_template('tasks/manage_posts.html')
+    return render_template('tasks/add_posts.html')
