@@ -5,15 +5,15 @@ from flask_login import current_user
 
 posts_bp = Blueprint('posts', __name__)
 
-### the basic route to show the posts
-@posts_bp.route('/posts/<int:post_id>')
+### the basic route to show the individual post
+@posts_bp.route('/post/<int:post_id>')
 def view_posts(post_id) :
 
     post = Post.query.get(post_id)
 
     return render_template('/tasks/posts.html', post = post)
 
-### route to edit, add or delete a particular post
+### route to show all the posts under the manage posts route
 @posts_bp.route('/manage_posts', methods = ['GET', 'POST'])
 def manage_posts() : 
 
@@ -51,3 +51,12 @@ def add_posts() :
             print(f"{title} \n{content} \n{is_public}")
 
     return render_template('tasks/add_posts.html')
+
+
+### route to edit the post
+@posts_bp.route('/post/<int:post_id>')
+def edit_post(post_id) : 
+
+    post = Post.query.get(post_id)
+
+    return render_template('/tasks/edit_post.html', post = post)
