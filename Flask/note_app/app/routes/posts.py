@@ -54,9 +54,36 @@ def add_posts() :
 
 
 ### route to edit the post
-@posts_bp.route('/post/<int:post_id>')
-def edit_post(post_id) : 
+@posts_bp.route('/edit/<int:post_id>', methods = ['GET', 'POST'])
+def edit_post(post_id) :
 
     post = Post.query.get(post_id)
 
-    return render_template('/tasks/edit_post.html', post = post)
+    if request.method == 'POST' : 
+
+        post.title = request.form.get('post_title')
+        post.content = request.form.get('post_content')
+        status = request.form.get('status')
+
+        post.is_public = True if status == 'public' else False
+
+        db.session.commit()
+
+        flash('Post modified succesfully', 'success')
+        return redirect(url_for('posts.manage_posts'))
+
+    return render_template('/tasks/edit_posts.html', post = post)
+
+
+### route to delete a post
+@posts_bp.route('/delete/<int:post_id>')
+def delete_post(post_id) : 
+
+    post = Post.query.get(post_id)
+
+    db.session.delete(post)
+    db.session.commit()
+
+    flash('Post deleted successfully', 'info')
+    return redirect(url_for('posts.manage_posts'))
+

@@ -21,9 +21,9 @@
 
                     <!-- Box B: Buttons (at the bottom) -->
                     <div class="btn-group mt-3">
-                        <a href="#" class="btn btn-sm btn-outline-primary">View</a>
+                        <a href="{{ url_for('posts.view_posts', post_id = post.id) }}" class="btn btn-sm btn-outline-primary">View</a>
                         <a href="{{ url_for('posts.edit_post', post_id = post.id) }}" class="btn btn-sm btn-outline-warning">Edit</a>
-                        <a href="#" class="btn btn-sm btn-outline-danger">Delete</a>
+                        <a href="{{ url_for('posts.delete_post', post_id = post.id) }}" class="btn btn-sm btn-outline-danger">Delete</a>
                     </div>
 
                 </div>
