@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
+{% from 'macros/_ui_post.html' import post_view %}
 
 {% block content %}
 
-    {% for post in posts %}
+  {% for post in posts %}
 
-      {% include 'components/_post_view.html' %}
+    {{ post_view(title = post.title, content = post.content) }}
 
     {% else %}
 
-      {% include 'components/_no_content.html' %}
+      {{ post_view() }}
 
-    {% endfor %}
+  {% endfor %}
 
-    
 {% endblock %}
