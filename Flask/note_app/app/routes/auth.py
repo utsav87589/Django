@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash,
 from app import db
 from app.models import User, Post
 from flask_login import login_user, logout_user
+from werkzeug.security import generate_password_hash, check_password_hash
 
 ### setting up our auth app
 auth_bp = Blueprint('auth', __name__)
@@ -20,7 +21,7 @@ def login() :
 
         user = User.query.filter_by(username = username).first()
 
-        if user and user.password == password : 
+        if user and check_password_hash(user.password, password) : 
 
             login_user(user)
             flash('Login successful', 'success')
@@ -41,8 +42,10 @@ def register() :
         username = request.form.get('username')
         password = request.form.get('password')
 
+        password_hash = generate_password_hash(password)
+
         if username and password :
-            new_user = User(username = username, password = password)
+            new_user = User(username = username, password = password_hash)
             db.session.add(new_user)
             db.session.commit()
 
