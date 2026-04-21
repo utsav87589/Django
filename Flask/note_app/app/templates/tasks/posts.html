@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
-
+{% from 'macros/_ui_post.html' import post_view %}
 
 {% block content %}
 
-{% include 'components/_post_full.html' %}
+{{ post_view(post_id = post.id, title = post.title, content = post.content, full_view = True) }}
 
 {% endblock %}

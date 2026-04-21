@@ -1,7 +1,0 @@
-<div class="card text-center">
-  <div class="card-body">
-    <h5 class="card-title">{{ post.title }}</h5>
-    <p class="card-text">{{ post.content[:40] }}</p>
-    <a href="{{ url_for('posts.view_posts', post_id = post.id) }}" class="btn btn-primary">Read more</a>
-  </div>
-</div>

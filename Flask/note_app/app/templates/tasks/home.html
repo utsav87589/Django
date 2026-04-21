@@ -5,7 +5,7 @@
 
   {% for post in posts %}
 
-    {{ post_view(title = post.title, content = post.content) }}
+    {{ post_view(post_id = post.id, title = post.title, content = post.content, full_view = False) }}
 
     {% else %}
 
