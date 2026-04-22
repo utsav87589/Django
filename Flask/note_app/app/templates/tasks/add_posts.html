@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
+{% from 'macros/_ui_post_form.html' import post_form %}
 
 {% block content %}
 
 <form method="post">
-    {% include 'components/_post_form.html' %}
+    {{ post_form(post = None) }}
 </form>
 
 {% endblock %}
