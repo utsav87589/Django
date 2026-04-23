@@ -87,3 +87,15 @@ def delete_post(post_id) :
     flash('Post deleted successfully', 'info')
     return redirect(url_for('posts.manage_posts'))
 
+### route to delete all the posts
+@posts_bp.route('/delete_all')
+def delete_all() : 
+
+    user_posts = Post.query.filter_by(user_id = current_user.id)
+
+    user_posts.delete()
+    db.session.commit()
+
+    flash('Deleted all the posts', 'danger')
+
+    return redirect(url_for('posts.manage_posts'))
