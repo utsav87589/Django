@@ -44,5 +44,33 @@
 // let message = isStudent ? 'Yes' : 'No'
 // console.log(message)
 
-let username = 'Utsav ';
-console.log(username.repeat(3))
+// let username = 'Utsav ';
+// console.log(username.repeat(3))
+
+
+// let full_name = 'Utsav Kundu';
+
+// first_name = full_name.slice(0, full_name.indexOf(' '));
+// last_name = full_name.slice(full_name.indexOf(' ') + 1);
+
+// console.log(`Your first name is ${first_name} and last name is ${last_name}`)
+
+
+// let int = 1;
+
+// while(int <= 10){
+//     console.log(int);
+//     int++ ;
+// }
+
+// for(let i = 0; i <= 10; i++){
+//     console.log(i)
+// }
+
+// let min = 50;
+// let max = 100;
+
+// let random = Math.floor(Math.random() * ((max - min) + 1) + min);
+// console.log(min)
+// console.log(max)
+// console.log(random)
