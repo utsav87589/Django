@@ -74,3 +74,39 @@
 // console.log(min)
 // console.log(max)
 // console.log(random)
+
+
+//-----------------Number guessing game
+
+// let attempts = 0;
+// let running  = true;
+// let answer = Math.floor((Math.random() * 100) + 1);
+
+// while(running){
+//     let guess = window.prompt('Enter a number between 1 and 100');
+
+//     if (guess < answer){
+//         window.alert('The guess is too low');
+//     }
+//     else if(guess > answer){
+//         window.alert('The guess is too high');
+//     }
+//     else{
+//         window.alert(`Congrats the answer is ${answer}, it took you ${attempts} attempts to guess it`);
+//         running = false;
+//     }
+//     attempts ++;
+// }
+
+
+//----------------------arrays
+
+// let arr = ['apple', 2, false, '3.14'];
+
+// console.log(arr);
+// console.log(typeof(arr));
+
+// for (let i = 0; i < arr.length; i++) {
+//     console.log(arr[i])
+// }
+
