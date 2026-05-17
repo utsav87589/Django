@@ -110,3 +110,53 @@
 //     console.log(arr[i])
 // }
 
+
+
+//--------------------spread operator
+
+// let numbers = [1, 2, 3, 4, 5]
+
+// console.log(...numbers)
+// let fruits = ['kiwi', 'papaya', 'oranges'];
+// let vegetables = ['potato', 'sweet potato', 'carrots'];
+
+// let food = [...fruits, ...vegetables, 'tofu'];
+// console.log(food)
+
+
+//---------------rest parameter
+// function get_foods(...foods){
+//     console.log(foods);
+// }
+
+// food1 = 'burger';
+// food2 = 'pizza';
+// food3 = 'poutine';
+// food4 = 'dosa';
+
+// get_foods(food1, food2, food3, food4);
+
+
+//-----------------------Dice roller program
+
+// let random_num = Math.floor((Math.random() * 6) + 1);
+// console.log(random_num)
+
+// let random_num1 = Math.floor((Math.random() * 6) + 1);
+// let random_num2 = Math.floor((Math.random() * 6) + 1);
+// let random_num3 = Math.floor((Math.random() * 6) + 1);
+// let random_num4 = Math.floor((Math.random() * 6) + 1);
+
+// let numbers = [random_num1, random_num2, random_num3, random_num4];
+// console.log(numbers);
+
+
+// let num_of_dices = window.prompt('Enter number of dices you want to roll');
+// let numbers = [];
+
+// for (let i = 0; i < num_of_dices; i++){
+//     let random_num = Math.floor((Math.random() * 6) + 1);
+//     numbers.push(random_num);
+// }
+
+// window.alert(`the output of the dices are : ${numbers}`)
