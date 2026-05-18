@@ -160,3 +160,129 @@
 // }
 
 // window.alert(`the output of the dices are : ${numbers}`)
+
+
+//----------------------Callbacks
+
+// function sum(callback, x, y){
+//     let result = x + y;
+//     callback(result);
+// }
+
+// function display_sum(result){
+//     console.log(result);
+// }
+
+// sum(display_sum, 1, 2);
+
+
+//-----------------foreach() method
+
+// let numbers = [1, 2, 3, 4, 5];
+
+// function double(element, index, array){
+//     array[index] = element * 2;
+// }
+
+// numbers.forEach(double);
+// console.log(numbers);
+
+// let fruits = ['oranges', 'papaya', 'strawberries', 'kiwis'];
+
+// function capitialise(element, index, array){
+//     array[index] = element.charAt(0).toUpperCase() + element.slice(1);
+// }
+
+// fruits.forEach(capitialise);
+// console.log(fruits);
+
+
+//-------------------map() method
+
+// let students = ['jack', 'oggy', 'bob'];
+
+// function upperCase(element){
+//     return element.toUpperCase();
+// }
+
+// const newStudents = students.map(upperCase);
+
+// console.log(students);
+// console.log(newStudents);
+
+
+//------------------filter() method
+
+// let numbers = [1, 2, 3, 4, 5, 6, 7];
+
+// function isEven(element){
+//     return element % 2 === 0;
+// }
+
+// const evenNumbers = numbers.filter(isEven);
+// console.log(numbers);
+// console.log(evenNumbers);
+
+
+//-----------------reduce() method
+
+const prices = [25, 23, 27, 48, 54, 56, 89];
+
+// function total(accumulator, element){
+//     return accumulator + element;
+// }
+
+// const total_price = prices.reduce(total);
+// console.log(prices);
+// // console.log(total_price);
+
+// function maxPrice(previous, next){
+//     return Math.max(previous, next);
+// }
+
+// const max_price = prices.reduce(maxPrice);
+// console.log(prices);
+// console.log(max_price);
+
+
+//--------------------function expressions
+
+// setTimeout(function(){
+//     console.log('Hello');
+// }, 5000);
+
+// const numbers = [3, 2, 5, 6, 4, 5, 8, 9, 5, 4];
+
+// const squares = numbers.map(function(element){
+//     return Math.pow(element, 2);
+// });
+
+// const even = numbers.map(function(element){
+//     return element % 2 === 0;
+// });
+
+// console.log(numbers);
+// console.log(squares);
+// console.log(even);
+
+
+//----------------------Arrow functions
+
+// const numbers = [3, 2, 5, 6, 4, 5, 8, 9, 5, 4];
+
+// const squares = numbers.map((element) => {
+//     return Math.pow(element, 2);
+// });
+
+// const even = numbers.map((element) => {
+//     return element % 2 === 0;
+// });
+
+// const odd = numbers.filter((element) => {
+//     return element % 2 !== 0;
+// });
+
+// console.log(numbers);
+// console.log(squares);
+// console.log(even);
+// console.log(odd);
