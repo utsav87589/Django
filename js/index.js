@@ -226,7 +226,7 @@
 
 //-----------------reduce() method
 
-const prices = [25, 23, 27, 48, 54, 56, 89];
+// const prices = [25, 23, 27, 48, 54, 56, 89];
 
 // function total(accumulator, element){
 //     return accumulator + element;
@@ -286,3 +286,72 @@ const prices = [25, 23, 27, 48, 54, 56, 89];
 // console.log(squares);
 // console.log(even);
 // console.log(odd);
+
+
+//-----------------------JS Objects
+
+// const car1 = {
+//     'make' : 'Ford',
+//     'model' : 'Mustang 5.0 v8',
+//     'year' : 2026,
+//     sayCar : (make, model, year) => {console.log(`I drive a ${make} ${model} ${year}`)}
+// };
+
+// car1.make = 'Toyota';
+
+// console.log(car1.make);
+// console.log(car1.model);
+// car1.sayCar(car1.make, car1.model, car1.year);
+
+
+//-------------------'THIS' keyword
+
+// const car1 = {
+//     'make' : 'Toyota',
+//     'model' : 'Land Cruiser',
+//     'year' : 2026,
+//     sayCar : function(){console.log(`I drive a ${this.make} ${this.model} ${this.year}`)}
+// };
+
+
+// console.log(car1.make);
+// console.log(car1.model);
+// car1.sayCar();
+
+
+//----------------Constructors
+
+// function Car(make, model, year){
+//     this.make = make,
+//     this.model = model,
+//     this.year = year,
+//     this.sayCar = function(){console.log(`I drive a ${this.make} ${this.model} ${this.year}`)}
+// };
+
+// const car_mustang = new Car('Ford', 'Mustang 5.0 v8', 2026);
+
+// car_mustang.sayCar();
+
+// console.log(`I drive a ${car_mustang.make} ${car_mustang.model} ${car_mustang.year}`);
+
+
+//------------------Classes
+
+// class Car{
+//     constructor(make, model, year){
+//         this.make = make;
+//         this.model = model;
+//         this.year = year
+//     }
+
+//     displayCar(){
+//         console.log(`I have a ${this.make} ${this.model} ${this.year}`)
+//     }
+// }
+
+// const car1 = new Car('Toyota', 'Grand Highlander Limited', 2026);
+// const car2 = new Car('Tesla', 'model 3', 2024);
+
+// car1.displayCar();
+// car2.displayCar();
+
