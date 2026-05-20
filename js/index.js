@@ -355,3 +355,117 @@
 // car1.displayCar();
 // car2.displayCar();
 
+
+//-------------------Static keyword
+
+// class Car{
+
+//     static count = 0;
+
+//     constructor(make, model, year){
+//         this.make = make;
+//         this.model = model;
+//         this.year = year;
+//         Car.count++;
+//     }
+
+//     static count_cars(){
+//         console.log(`There are ${Car.count} cars`);
+//     }
+
+//     get_car_info(){
+//         console.log(`The car is ${this.make} ${this.model} ${this.year}`);
+//     }
+// }
+
+// const mustang = new Car('Ford', 'Mustang 5.0 v8 GT premium', 2026);
+// const landcruiser = new Car('Toyota', 'Land Cruiser premium', 2026);
+// const tesla = new Car('Tesla', 'Model 3 awd long range', 2026);
+
+// mustang.get_car_info();
+// landcruiser.get_car_info();
+// console.log(tesla.model);
+// Car.count_cars();
+
+
+//------------------------Inheritance
+
+// class Car{
+//     isRunning = true;
+
+//     run(){
+//         console.log(`${this.model} is running`);
+//     }
+
+//     stop(){
+//         console.log(`${this.model} is stopping`);
+//     }
+// }
+
+
+// class Mustang extends Car{
+//     model = 'Mustang 5.0 v8';
+
+//     fast(){
+//         console.log(`${this.model} is going over 200mph+`);
+//     }
+// }
+
+// class Tahoe extends Car{
+//     model = 'Tahoe RST';
+
+//     big(){
+//         console.log(`${this.model} is very big, confortable and fast as well`);
+//     }
+// }
+
+// const mustang = new Mustang();
+// const tahoe = new Tahoe();
+
+// console.log(mustang.isRunning);
+// console.log(tahoe.isRunning);
+
+// mustang.stop();
+
+// mustang.fast();
+// tahoe.big();
+
+
+//-------------------SUPER keyword
+
+// class Car{
+//     constructor(make, model){
+//         this.make = make;
+//         this.model = model;
+//     }
+
+//     run(){
+//         console.log(`${this.model} is running fast vroom!`)
+//     }
+// }
+
+
+// class Mustang extends Car{
+//     constructor(make, model, year){
+//         super(make, model);
+//         this.year = year;
+//     }
+
+// }
+
+// class Tahoe extends Car{
+//    constructor(make, model, year){
+//     super(make, model);
+//     this.year = year;
+//    }
+// }
+
+
+// const mustang = new Mustang('Ford', 'Mustang 5.0 v8', 2026);
+// const tahoe = new Tahoe('Chevrolet', 'Tahoe RST', 2026);
+
+// console.log(mustang.model);
+// mustang.run();
+// tahoe.run();
+
+
