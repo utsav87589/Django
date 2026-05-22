@@ -552,4 +552,56 @@
 // console.log(info);
 
 
-//-------------
+//-------------Array of objects
+
+// let cars = [{'make' : 'Toyota', model : 'Grand Highlander Liimited Hybrid', year : 2026},
+//             {'make' : 'Ford', model : 'Mustang GT convertible 5.0 v8', year : 2026},
+//             {'make' : 'Honda', model : 'Civic sports hybrid', year : 2026},
+//             {'make' : 'Toyota', model : 'Camry XSE AWD', year : 2026},
+//             {'make' : 'Tesla', model : 'Model 3 AWD Long Range', year : 2026}
+// ];
+
+// cars.forEach(car => console.log(car));
+
+
+//--------------Sort method is JS
+
+// let cars = [{'make' : 'Toyota', model : 'Grand Highlander Liimited Hybrid', year : 2027},
+//             {'make' : 'Ford', model : 'Mustang GT convertible 5.0 v8', year : 2025},
+//             {'make' : 'Honda', model : 'Civic sports hybrid', year : 2026},
+//             {'make' : 'Toyota', model : 'Camry XSE AWD', year : 2024},
+//             {'make' : 'Tesla', model : 'Model 3 AWD Long Range', year : 2023}
+// ];
+
+// // cars.sort((a, b) => a.year - b.year);
+// cars.sort((a, b) => a.make.localeCompare(b.make));
+
+// console.log(cars);
+
+
+//------------Shuffling an array
+
+// const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// function shuffle(array){
+//     for(let i = array.length - 1; i > 0;i--){
+//         const random = Math.floor(Math.random() * (i + 1));
+        
+//         [array[i], array[random]] = [array[random], array[i]];
+//     }
+// }
+
+// shuffle(cards);
+// console.log(cards);
+
+
+//---------------- Date objects in JS
+
+// const date = new Date();
+// const date = new Date(0);
+// const year = date.getFullYear();
+
+// console.log(year);
+
+
+//----------------- 
