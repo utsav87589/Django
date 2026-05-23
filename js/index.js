@@ -604,4 +604,39 @@
 // console.log(year);
 
 
-//----------------- 
+//----------------- Closures
+
+// function counter(){
+//     let count = 0;
+
+//     function inner(){
+//         count++;
+//         console.log(`count increased to ${count}`);
+//     }
+    
+//     return {inner};
+// }
+
+// const count = counter();
+// count.inner();
+// count.inner();
+// count.inner();
+// count.inner();
+// count.inner();
+// count.inner();
+
+
+//----------------------setTimeout()
+
+// setTimeout( () => {
+//     window.alert('Hello');
+// }, 5000);
+
+
+// setTimeout( () => {
+//     console.log('Hello JS!');
+// }, 5000);
+
+
+//-------------------ES6 Modules
+
