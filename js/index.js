@@ -640,3 +640,29 @@
 
 //-------------------ES6 Modules
 
+// import {PI, getCircumfrence, getArea} from './mathUtil.js'
+
+// console.log(PI);
+// console.log(getArea(3));
+// console.log(getCircumfrence(3));
+
+
+//-------------------Asynchronous code
+
+// function func1(callback){
+//     setTimeout(() => {
+//         console.log('task 1 is completed');
+//         callback();
+//     }, 5000);
+// }
+
+// function func2(){
+//     console.log('task 2 is completed');
+//     console.log('task 3 is completed');
+//     console.log('task 4 is completed');
+// }
+
+// func1(func2);
+
+
+//------------------Error handling
