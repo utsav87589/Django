@@ -666,3 +666,47 @@
 
 
 //------------------Error handling
+
+// try{
+//     // console.lag('Hello');
+//     console.log(x);
+// }
+
+// catch(error){
+//     console.error(error);
+// }
+
+// finally{
+//     console.log('This always works');
+// }
+
+// console.log('You have reached the end of the program!');
+
+
+//----------------DOM (Document object model)
+
+// let cars = document.getElementsByClassName('cars');
+
+// cars[0].style.backgroundColor = 'yellow';
+
+// const cars = document.getElementById('cars');
+// const firstCar = cars.firstElementChild;
+// const lastCar = cars.lastElementChild
+
+// firstCar.style.backgroundColor = 'yellow';
+// lastCar.style.backgroundColor = 'Red';
+
+
+// const childCar = document.getElementById('mustang');
+// const parentElement = childCar.parentElement;
+
+// parentElement.style.backgroundColor = 'Blue';
+
+// const childCar = document.getElementById('camry');
+// const previousSibling = childCar.previousElementSibling;
+// const nextSibling = childCar.nextElementSibling;
+
+// previousSibling.style.backgroundColor = 'Blue';
+// nextSibling.style.backgroundColor = 'orange';
+
+
