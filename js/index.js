@@ -710,3 +710,41 @@
 // nextSibling.style.backgroundColor = 'orange';
 
 
+//-------------Add and Change elements using DOM
+
+// const newH1 = document.createElement('h1');
+// newH1.textContent = 'I like Ford Mustang 5.0 v8';
+
+// document.body.append(newH1);
+// document.body.prepend(newH1);
+
+// document.getElementById('box-1').append(newH1);
+
+// const boxes = document.querySelectorAll('.box');
+
+// document.body.insertBefore(newH1, boxes[0]);
+
+
+//------------------Mouse event listner
+
+// document.getElementById('button').addEventListener('click', (event) => {
+//     event.target.style.backgroundColor = 'blue';
+//     event.target.textContent = 'clicked';
+// })
+
+// document.getElementById('button').addEventListener('mouseover', (event) => {
+//     event.target.style.backgroundColor = 'green';
+//     event.target.textContent = 'loading';
+// })
+
+// document.getElementById('button').addEventListener('mouseout', (event) => {
+//     event.target.style.backgroundColor = 'white';
+//     event.target.textContent = 'submit';
+// })
+
+
+//---------------------Key events
+
+// document.addEventListener('keydown', (event) => {
+//     console.log(event);
+// })
