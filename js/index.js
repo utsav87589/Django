@@ -748,3 +748,20 @@
 // document.addEventListener('keydown', (event) => {
 //     console.log(event);
 // })
+
+
+//--------------------Node lists
+
+// const boxes = document.querySelectorAll('.box');
+// const text = document.createElement('h1');
+// text.textContent = 'Hello Hi!';
+
+// boxes.forEach((box) => {
+//     box.textContent = 'Hello!';
+// })
+
+
+//-----------------Class List
+
+// const button = document.getElementById('button');
+// button.classList.add('enabled');
