@@ -1,0 +1,39 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1{
+    font-size: 2.5rem;
+}
+
+.choices button{
+    font-size: 4.5rem;
+    border-radius: 250px;
+    margin: 0 10px;
+    background-color: aqua;
+}
+
+.choices button:hover{
+    background-color: blue;
+    cursor: pointer;
+}
+
+#playerDisplay, #computerDisplay{
+    font-size: 1.5rem;
+}
+
+#resultDisplay{
+    font-size: 3rem;
+    margin: 0 10px;
+}
+
+.redtext{
+    background-color: red;
+}
+
+.greentext{
+    background-color: green;
+}
