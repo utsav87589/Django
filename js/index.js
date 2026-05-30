@@ -765,3 +765,23 @@
 
 // const button = document.getElementById('button');
 // button.classList.add('enabled');
+
+
+//-----------------Callback hell
+
+// function task1(callback){
+//     console.log('Hello!');
+//     callback();
+// }
+
+// function task2(){
+//     console.log('How you doing!');
+// }
+
+// task1(task2 => {
+//     console.log('I am good');
+// });
+
+
+//---------------Promises in JS
+
