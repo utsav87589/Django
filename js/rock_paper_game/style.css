@@ -30,10 +30,14 @@ h1{
     margin: 0 10px;
 }
 
-.redtext{
-    background-color: red;
+.displayScore{
+    font-size: 1.5rem;
 }
 
-.greentext{
-    background-color: green;
+.redtext, #computerScoreDisplay{
+    color: red;
+}
+
+.greentext, #playerScoreDisplay{
+    color: green;
 }
