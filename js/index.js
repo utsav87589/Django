@@ -785,3 +785,88 @@
 
 //---------------Promises in JS
 
+// function eat(){
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             resolve('Finisehd eating the food!');
+//         }, 5000);
+//     });
+// }
+
+// function exercise(){
+//     console.log('hit the gym please!!');
+// }
+
+// function study(){
+//     console.log('Time to write some code though!');
+// }
+
+// eat().then((message) => {
+//     console.log(message);
+// });
+// exercise();
+// study();
+
+
+//-----------------Async and Await
+
+// function eat(){
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             resolve('Finisehd eating the food!');
+//         }, 5000);
+//     });
+// }
+
+// function exercise(){
+//     console.log('hit the gym please!!');
+// }
+
+// function study(){
+//     console.log('Time to write some code though!');
+// }
+
+// async function doTasks(){
+//     const eatResult = await eat();
+
+//     console.log(eatResult);
+
+//     exercise();
+//     study();
+// }
+
+// doTasks();
+
+
+//------------------JSON files
+
+// const cars = ['toyota', 'honda', 'ford', 'chevrolet', 'lincoln'];
+// const jsonString = JSON.stringify(cars);
+
+// console.log(cars);
+// console.log(jsonString);
+
+
+// const cars = [{
+//     'brand' : 'toyota',
+//     'year' : 2026,
+//     'model' : 'Camry XSE awd'
+// },
+// {
+//     'brand' : 'ford',
+//     'year' : 2026,
+//     'model' : 'Mustang 5.0 v8'
+// },
+// ];
+// const jsonString = JSON.stringify(cars);
+
+// console.log(cars);
+// console.log(jsonString);
+
+
+// const cars = `[{"brand" : "toyota", "year" : 2026, "model" : "Camry XSE awd"}, {"brand" : "ford", "year" : 2026, "model" : "Mustang 5.0 v8"}]`;
+
+// const jsonCars = JSON.parse(cars);
+
+// console.log(cars);
+// console.log(jsonCars);
