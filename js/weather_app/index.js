@@ -15,10 +15,9 @@ async function fetch_long_lat(city_name){
         }
 
         const geo_data = await response.json();
-        console.log(geo_data);
-        console.log(geo_data[0].lat);
-        console.log(geo_data[0].lon);
 
+        return{lat : geo_data[0].lat, 
+            lon : geo_data[0].lon};
     }
     catch(error){
         console.error(error);
@@ -36,12 +35,27 @@ async function fetch_weather_by_coord(lat, lon){
 
         const weather_data = await response.json();
 
-        console.log(weather_data)
+        return weather_data;
     }
     catch(error){
         console.error(error);
     }
 }
 
-fetch_long_lat("Toronto");
-fetch_weather_by_coord(43.6534817, -79.3839347);
+async function fetch_weather_by_city(city_name){
+
+    const {lat, lon} = await fetch_long_lat(city_name);
+    const weather = await fetch_weather_by_coord(lat, lon);
+
+    console.log(weather);
+    console.log(weather['main'].temp);
+    console.log(weather['weather'][0].description);
+    console.log(`${city_name} :: ${lat} :: ${lon}`);
+}
+
+
+fetch_weather_by_city('Montreal');
+fetch_weather_by_city('Atlanta');
+fetch_weather_by_city('London');
+fetch_weather_by_city('Miami');
+fetch_weather_by_city('Las Vegas');
