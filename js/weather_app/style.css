@@ -1,6 +1,65 @@
 body{
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: hsla(0, 12%, 85%, 0.515);
+}
+
+.weatherForm{
+    margin: 20px;
+}
+
+.cityInput{
+    padding: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    border: 2px solid hsl(0, 0, 20%, 0.3);
+    border-radius: 10px;
+    margin: 10px;
+    width: 300px;
+}
+
+.submitFormButton{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    background-color: hsl(109, 34%, 41%);
+    cursor: pointer;
+}
+
+.submitFormButton:hover{
+    background-color: hsl(109, 34%, 31%);
+}
+
+.displayCard{
+    background: linear-gradient(180deg, rgb(178, 178, 227), rgb(230, 208, 168));
+    padding: 50px;
+    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.515);
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    font-size: 3.5rem;
+    margin-top: 0;
+}
+
+p{
+    font-size: 1.5rem;
+}
+
+.displayTemp, .displayHumidity{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.displayDesc{
+    font-weight: bold;
+    font-style: italic;
 }
