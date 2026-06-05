@@ -43,6 +43,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 10px;
 }
 
 h1{
@@ -53,8 +54,11 @@ h1{
 p{
     font-size: 1.5rem;
 }
-
-.displayTemp, .displayHumidity{
+.displayTemp{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.displayHumidity{
     font-size: 1.5rem;
     font-weight: bold;
 }
