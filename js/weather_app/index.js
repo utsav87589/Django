@@ -1,4 +1,3 @@
-
 const api_key = CONFIG.OPEN_WEATHER_API_KEY;
 
 const button = document.querySelector(".submitFormButton");
@@ -6,18 +5,18 @@ const button = document.querySelector(".submitFormButton");
 button.addEventListener("click", async (event) => {
 
     event.preventDefault();
-
     const cityName = document.querySelector(".cityInput").value;
-    console.log(cityName);
 
-    const {latitude, longitude} = await getCityGeoCoordinates(cityName);
-    console.log(`${latitude} :: ${longitude}`)
+    const{temperature, humidity, description, id} = await getCityWeatherByName(cityName);
 
-    getCityWeatherByCoordinates(latitude, longitude);
+    document.querySelector('.displayCity').textContent = cityName;
+    document.querySelector('.displayTemp').textContent = `Temp : ${temperature}°C`;
+    document.querySelector('.displayHumidity').textContent = `Humidity : ${humidity}%`;
+    document.querySelector('.displayDesc').textContent = description;
     
 })
 
-async function getCityGeoCoordinates(cityName){
+async function fetchCityGeoCoordinates(cityName){
     try{
         const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${api_key}`);
 
@@ -37,7 +36,7 @@ async function getCityGeoCoordinates(cityName){
     }
 }
 
-async function getCityWeatherByCoordinates(latitude, longitude){
+async function fetchCityWeatherByCoordinates(latitude, longitude){
     try{
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${api_key}`);
         if (!response.ok){
@@ -45,10 +44,13 @@ async function getCityWeatherByCoordinates(latitude, longitude){
         }
         else{
             const cityWeather = await response.json();
-            console.log(cityWeather);
-            console.log(cityWeather['main']);
-            console.log(cityWeather['main'].temp);
-            console.log(cityWeather['main'].humidity);
+
+            return{
+                'temperature' : cityWeather['main'].temp,
+                'humidity' : cityWeather['main'].humidity,
+                'description' : cityWeather['weather'][0].description,
+                'id' : cityWeather['weather'][0].id
+            }
         }
     }
     catch(error){
@@ -56,4 +58,20 @@ async function getCityWeatherByCoordinates(latitude, longitude){
     }
 }
 
+async function getCityWeatherByName(cityName){
 
+    try{
+        const {latitude, longitude} = await fetchCityGeoCoordinates(cityName);
+        const {temperature, humidity, description, id} = await fetchCityWeatherByCoordinates(latitude, longitude);
+
+        return{
+            temperature, humidity, description, id
+        }
+
+    }
+
+    catch(error){
+        console.error(error);
+    }
+
+}
