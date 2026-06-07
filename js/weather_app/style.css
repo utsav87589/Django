@@ -46,6 +46,10 @@ body{
     border-radius: 10px;
 }
 
+.hidden{
+    display: none;
+}
+
 h1{
     font-size: 3.5rem;
     margin-top: 0;
@@ -66,4 +70,9 @@ p{
 .displayDesc{
     font-weight: bold;
     font-style: italic;
+}
+
+.displayIcon{
+    margin: none;
+    padding: 0px;
 }
