@@ -29,7 +29,6 @@ def login_api() :
     if user and check_password_hash(user.password, password) : 
 
         session['user_id'] = user.id
-
         return jsonify({"status" : "success", "message" : "Login Successful!"}), 200
     
     else : 
