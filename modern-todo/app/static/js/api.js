@@ -1,6 +1,6 @@
 export async function registerAPI(username, password){
     const response = await fetch('/api/register',{
-        methods : "POST",
+        method : "POST",
         headers : {"Content-Type" : "application/json"},
         body : JSON.stringify({username, password})
     });
@@ -10,7 +10,7 @@ export async function registerAPI(username, password){
 
 export async function loginAPI(username, password){
     const response = await fetch('/api/login',{
-        methods : "POST",
+        method : "POST",
         headers : {"Content-Type" : "application/json"},
         body : JSON.stringify({username, password})
     });
