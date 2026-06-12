@@ -17,10 +17,10 @@ def create_app() :
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///modern-todo.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-    db.__init__(app)
+    db.init_app(app)
 
     from app.routes.auth import auth_bp
 
-    app.register_blueprint(auth_bp)
+    app.register_blueprint(auth_bp, url_prefix = '/')
 
     return app
