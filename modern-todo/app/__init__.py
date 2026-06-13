@@ -20,7 +20,9 @@ def create_app() :
     db.init_app(app)
 
     from app.routes.auth import auth_bp
+    from app.routes.task import task_bp
 
     app.register_blueprint(auth_bp, url_prefix = '/')
+    app.register_blueprint(task_bp, url_prefix = '/')
 
     return app
