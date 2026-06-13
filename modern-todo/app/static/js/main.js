@@ -1,11 +1,11 @@
-import { registerAPI, loginAPI } from "./api.js";
+import { registerAPI, loginAPI, taskAPI } from "./api.js";
 
 document.addEventListener("DOMContentLoaded", (event) => {
     const registerForm = document.querySelector("#registerForm");
     const loginForm = document.querySelector("#loginForm");
 
     if (registerForm){
-        document.addEventListener("submit", async (event) => {
+        registerForm.addEventListener("submit", async (event) => {
             event.preventDefault();
 
             const username = document.querySelector("#username").value;
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     if(loginForm){
-        document.addEventListener("submit", async (event) => {
+        loginForm.addEventListener("submit", async (event) => {
             event.preventDefault();
 
             const username = document.querySelector("#username").value;

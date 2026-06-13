@@ -17,3 +17,11 @@ export async function loginAPI(username, password){
 
     return await response.json()
 }
+
+export async function taskAPI(){
+    const response = await fetch('/api/dashboard', {
+        method : "GET",
+    });
+
+    return await response.json();
+}
