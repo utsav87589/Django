@@ -11,18 +11,20 @@
 <body>
     
     <form id="login-form" class="auth-form">
-        <div class="form-group">
-            <label for="login-user-input">Username</label>
-            <input type="text" id="login-user-input" name="username" class="form-input" placeholder="Username" required>
-        </div>
 
-        <div class="form-group">
-            <label for="login-pass-input">Password</label>
-            <input type="password" id="login-pass-input" name="password" class="form-input" placeholder="Password" required>
-        </div>
+        <label for="login-username">Username</label>
+        <input type="text" id="login-username" class="username" name="login-username" placeholder="Enter your username" required>
+        <br>
 
-        <button type="submit" class="submit-btn">Enter</button>
-    </form>
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" class="password" name="login-password" placeholder="Enter your password" required>
+        <br>
+
+        <button type ="submit" id="login-submit-btn" class="submit-btn">Submit</button>
+
+    </form><br>
+
+    <a href="register.html" id="register-page-link">Doesn't have a account?Register here</a>
 
     <script src="../js/main.js"></script>
 </body>
