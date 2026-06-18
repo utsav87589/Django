@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Custom separator spacing */
+form br, body > br {
+    display: none; /* Disables raw HTML br line breaks in favor of CSS grid margins */
+}
+
+.auth-form label:not(:first-of-type) {
+    margin-top: 20px;
+}
+
+.submit-btn {
+    margin-top: 28px;
+}
