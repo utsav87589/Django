@@ -12,11 +12,8 @@ if(loginForm){
 
         localStorage.setItem("loggedInUser", username);
 
-        console.log(`${username} :: ${password}`);
-
-        setTimeout(() => {
-            window.location.href = "../html/dashboard.html";
-        }, 2000);
+        window.alert("Login Successful!");
+        window.location.href = "dashboard.html";
     })
 }
 
@@ -27,29 +24,35 @@ if(registerForm){
         username = document.querySelector("#register-username").value;
         password = document.querySelector("#register-password").value;
 
-        console.log(`${username} :: ${password}`);
         window.alert("Registration succesful!");
+        window.location.href = "login.html";
+    })    
 
-        setTimeout(() => {
-            window.location.href = "../html/login.html";
-        }, 3000);
-    })
 }
 
 if(dashboardContainer){
 
-    let tasks = []
+    let tasks = [];
 
-    username = localStorage.getItem("loggedInUser")
+    const username = localStorage.getItem("loggedInUser");
     document.querySelector("#dashboard-msg").textContent = `Hello, ${username}`;
 
     const addTasksForm = document.querySelector("#add-tasks-form");
     const taskInput = document.querySelector("#add-tasks-input");
+    const logoutBtn = document.querySelector("#logout-btn");
+
+    if(logoutBtn){
+        logoutBtn.addEventListener("click", (event) => {
+            localStorage.removeItem("loggedInUser");
+
+            window.location.href = 'login.html';
+        })
+    }
 
     addTasksForm.addEventListener("submit", (event) => {
 
         event.preventDefault();
-        const currentTask = taskInput.value;
+        const currentTask = taskInput.value.trim();
 
         if(currentTask !== ""){
 
@@ -70,9 +73,9 @@ if(dashboardContainer){
 
 
     function renderTasks(){
-        const displayTaskContainer = document.querySelector("#display-tasks");
+        const displayTasksContainer = document.querySelector("#display-tasks");
 
-        displayTaskContainer.innerHTML = "";
+        displayTasksContainer.innerHTML = "";
 
         tasks.forEach(task => {
             const individualTask = document.createElement("div");
@@ -107,7 +110,7 @@ if(dashboardContainer){
             individualTask.appendChild(textSpan);
             individualTask.appendChild(removeTask);
 
-            displayTaskContainer.appendChild(individualTask);
+            displayTasksContainer.appendChild(individualTask);
         })
     }
 
