@@ -30,7 +30,7 @@ def render_dashboard() :
     task_list = [{
         "id" : t.id,
         "task" : t.task,
-        "status" : t.status
+        "is_completed" : t.is_completed
     } for t in user_tasks]
 
     return jsonify({

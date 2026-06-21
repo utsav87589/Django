@@ -18,6 +18,7 @@ def login() :
     
     username = data.get('username')
     password = data.get('password')
+    password = str(password)
 
     if not username or not password : 
         return jsonify({"status" : "error", "message" : "username and password required"}), 400
@@ -52,6 +53,7 @@ def register() :
     
     username = data.get("username")
     password = data.get("password")
+    password = str(password)
 
     if not username or not password : 
         return jsonify({
