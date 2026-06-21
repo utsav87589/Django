@@ -4,7 +4,7 @@ class Task(db.Model) :
 
     id = db.Column(db.Integer, primary_key = True)
     task = db.Column(db.String(500), nullable = False)
-    status = db.Column(db.String(20), default = 'Pending')
+    is_completed = db.Column(db.Boolean, nullable = False, default = False)
 
     ### link of the primary key
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)
