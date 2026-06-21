@@ -1,13 +1,12 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash, session
+from flask import Blueprint, render_template, request, redirect, url_for, flash, session, jsonify
 from app import db
 from app.models import User
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask import jsonify
 
 
 auth_bp = Blueprint('auth', __name__)
 
-### login route
+### ------------------login route
 @auth_bp.route('/', methods = ['POST'])
 @auth_bp.route('/login', methods = ['POST'])
 def login() : 
@@ -26,6 +25,7 @@ def login() :
     user = User.query.filter_by(username = username).first()
 
     if user and check_password_hash(user.password, password) : 
+        session['user_id'] = user.id
         return jsonify({
             "status" : "success",
             "message" : f"login successful, hello {user.username}",
@@ -38,6 +38,7 @@ def login() :
     }), 401
 
 
+### ---------------------register route
 @auth_bp.route("/register", methods = ['POST'])
 def register() : 
 
@@ -76,3 +77,15 @@ def register() :
         "status" : "success",
         "message" : f"succesfully created the user : {username}"
     }), 201
+
+
+### ----------------------------logout route
+@auth_bp.route('/logout', methods = ['POST'])
+def logout() : 
+
+    session.pop('user_id', None)
+
+    return jsonify({
+        "status" : "success",
+        "message" : "Log out of the session successfully"
+    }), 200
