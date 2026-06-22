@@ -71,3 +71,63 @@ def add_tasks() :
         "status" : "success",
         "message" : "task created succesfully"
     }), 201
+
+
+###-----------------------completing the tasks on the main dashboard
+@dashboard_bp.route('/complete_tasks/<int:task_id>', methods = ['PATCH'])
+def complete_tasks(task_id) : 
+
+    current_user_id = session.get('user_id')
+
+    if not current_user_id : 
+
+        return jsonify({
+            "status" : "error",
+            "message" : "unauthorised user, try login again please!"
+        }), 401   
+
+    task_item = Task.query.filter_by(id = task_id, user_id = current_user_id).first()
+
+    if not task_item : 
+        return jsonify({
+            "status" : "error",
+            "message" : "task item not found or login error"
+        }), 404
+    
+    task_item.is_completed = not task_item.is_completed
+    db.session.commit()
+
+    return jsonify({
+        "status" : "success",
+        "message" : f"{task_item.task} is now completed"
+    }), 200
+
+
+###----------------------deleting the task on the main dashboard page
+@dashboard_bp.route('/delete_task/<int:task_id>', methods = ['DELETE'])
+def delete_task(task_id) : 
+
+    current_user_id = session.get('user_id')
+
+    if not current_user_id : 
+
+        return jsonify({
+            "status" : "error",
+            "message" : "unauthorised user, try login again please!"
+        }), 401   
+
+    task_item = Task.query.filter_by(id = task_id, user_id = current_user_id).first()
+
+    if not task_item : 
+        return jsonify({
+            "status" : "error",
+            "message" : "task item not found or login error"
+        }), 404
+    
+    db.session.delete(task_item)
+    db.session.commit()
+
+    return jsonify({
+        "status" : "success",
+        "message" : "task item has succesfully deleted"
+    }), 200
