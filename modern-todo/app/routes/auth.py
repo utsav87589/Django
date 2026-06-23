@@ -1,64 +1,92 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash, session, jsonify
+from flask import Blueprint, render_template, request, redirect, url_for, flash, session, jsonify, make_response
 from app import db
 from app.models import User
-from flask_login import login_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
+
 
 auth_bp = Blueprint('auth', __name__)
 
-
-#---------Login page logic
-@auth_bp.route('/')
-@auth_bp.route('/login', methods = ['GET'])
-def login_page() : 
-
-    return render_template('login.html')
-
-
-# Data api to fetch from the JSON object
-@auth_bp.route('/api/login', methods = ['POST'])
-def login_api() : 
+### ------------------login route
+@auth_bp.route('/login', methods = ['POST'])
+def login() : 
 
     data = request.get_json()
 
+    if not data : 
+        return make_response(jsonify({"status" : "error", "message" : "missing request data"}), 400)
+    
     username = data.get('username')
     password = data.get('password')
+    password = str(password)
 
+    if not username or not password : 
+        return make_response(jsonify({"status" : "error", "message" : "username and password required"}), 400)
+    
     user = User.query.filter_by(username = username).first()
 
     if user and check_password_hash(user.password, password) : 
-
         session['user_id'] = user.id
-        return jsonify({"status" : "success", "message" : "Login Successful!"}), 200
+
+        return make_response(jsonify({
+            "status" : "success",
+            "message" : f"login successful, hello {user.username}",
+            "user_id" : user.id
+        }), 200)
     
-    else : 
+    return make_response(jsonify({
+        "status": "error",
+        "message": "invalid credentials"
+    }), 401)
 
-        return jsonify({"status" : "error", "message" : "Invalid credentials"}), 401
-    
 
-#---------------Register page logic
-@auth_bp.route('/register', methods = ['GET'])
-def register_page() : 
-
-    return render_template('register.html')
-
-@auth_bp.route('/api/register', methods = ['POST'])
-def register_api() : 
+### ---------------------register route
+@auth_bp.route("/register", methods = ['POST'])
+def register() : 
 
     data = request.get_json()
 
-    username = data.get('username')
-    password = data.get('password')
-
-    password_hash = generate_password_hash(password)
-
-    if username and password : 
-
-        new_user = User(username = username, password = password_hash)
-        db.session.add(new_user)
-        db.session.commit()
-
-        return jsonify({"status" : "success", "message" : "successfully registered"}), 200
+    if not data : 
+        return make_response(jsonify({
+            "status" : "error",
+            "message"  : "missing the requested data"
+        }), 400)
     
-    else : 
-        return jsonify({"status" : "error", "message" : "Enter the credentials to register please"}), 401
+    username = data.get("username")
+    password = data.get("password")
+    password = str(password)
+
+    if not username or not password : 
+        return make_response(jsonify({
+            "status" : "error",
+            "message" : "missing credentials"
+        }), 400)
+    
+    existing_user = User.query.filter_by(username = username).first()
+
+    if existing_user : 
+        return make_response(jsonify({
+            "status" : "error",
+            "message" : "username already taken"
+        }), 400)
+    
+    password_hashed = generate_password_hash(password)
+
+    new_user = User(username = username, password = password_hashed)
+    db.session.add(new_user)
+    db.session.commit()
+
+    return make_response(jsonify({
+        "status" : "success",
+        "message" : f"succesfully created the user : {username}"
+    }), 201)
+
+### ----------------------------logout route
+@auth_bp.route('/logout', methods = ['POST'])
+def logout() : 
+
+    session.pop('user_id', None)
+
+    return make_response(({
+        "status" : "success",
+        "message" : "Log out of the session successfully"
+    }), 200)
