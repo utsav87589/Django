@@ -75,12 +75,26 @@ def login() :
     }), 401)
 
 
-### ---------------------register route
+# Register route
 @auth_bp.route("/register", methods = ['POST'])
 def register() : 
 
+    """
+    Registers a new user in the database
+
+    Expected JSON input : 
+     - username (str)
+     - password (str|int)
+
+     Returns : 
+     - 201 Created : Success message and user created in the database
+     - 400 : Specific error payload
+
+    """
+
     data = request.get_json()
 
+    # Fail early if the client sent an empty body or incorrect content-type header
     if not data : 
         return make_response(jsonify({
             "status" : "error",
@@ -89,6 +103,8 @@ def register() :
     
     username = data.get("username")
     password = data.get("password")
+
+    # Cast to string to prevent crashed if a user inputs a purely numeric password
     password = str(password)
 
     if not username or not password : 
@@ -97,29 +113,44 @@ def register() :
             "message" : "missing credentials"
         }), 400)
     
+    # Check if username is already taken before creating a new account
     existing_user = User.query.filter_by(username = username).first()
 
+    # Generic error message prevents using the pre-existed username
     if existing_user : 
         return make_response(jsonify({
             "status" : "error",
             "message" : "username already taken"
         }), 400)
     
+    # Hashing the password for the secured database operations
     password_hashed = generate_password_hash(password)
 
     new_user = User(username = username, password = password_hashed)
     db.session.add(new_user)
     db.session.commit()
 
+    # Success message upon registration in the database
     return make_response(jsonify({
         "status" : "success",
         "message" : f"succesfully created the user : {username}"
     }), 201)
 
-### ----------------------------logout route
+
+# Logout route
 @auth_bp.route('/logout', methods = ['POST'])
 def logout() : 
 
+    """
+    Terminates the current user session
+
+     Returns : 
+     - 200 OK : Success message with cleared session cookie
+
+    """
+
+    # Remove the user ID from the session to log them out safely.
+    # Passing None prevents a KeyError if the user is already logged out.
     session.pop('user_id', None)
 
     return make_response(({
